@@ -40,7 +40,7 @@
     }
   });
   // Hover state
-  document.querySelectorAll('a, button, .comp-card, .media-card, .work-row, .t-item, .extra-card, .ch, .contact-tag, .fp-link, .ghost-cta').forEach((el) => {
+  document.querySelectorAll('a, button, .comp-card, .media-card, .work-row, .t-item, .extra-card, .ch, .contact-tag, .fp-link, .ghost-cta, .ep-card, .sum-card, .year-card').forEach((el) => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
   });
