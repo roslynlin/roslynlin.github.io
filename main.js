@@ -248,7 +248,342 @@
     statObserver.observe(stats);
   }
 
-  /* ---------- 14. Console signature ---------- */
+  /* ---------- 14. More Craft lightbox — click-to-show preview ---------- */
+  // Inline SVG previews for each More Craft work item.
+  // Visual compositions reflect the spirit of each piece; not photos.
+  const EX_PREVIEWS = {
+    'sribd-deck': {
+      tag: 'Visual Identity · Deck',
+      title: 'SRIBD 机构简介',
+      desc: 'SRIBD 品牌介绍演示设计与撰写 — 主视觉 / 版式 / 信息图 / 院长致辞页',
+      foot: '受众：政府 · 学界 · 产业合作',
+      svg: `
+        <defs>
+          <linearGradient id="sribdSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1F5D3A"/><stop offset="1" stop-color="#2B1810"/>
+          </linearGradient>
+        </defs>
+        <rect width="1600" height="900" fill="url(#sribdSky)"/>
+        <g opacity="0.18" stroke="#D9A521" stroke-width="1">
+          ${Array.from({length: 14}, (_, i) => `<line x1="${i*120}" y1="0" x2="${i*120+400}" y2="900"/>`).join('')}
+        </g>
+        <g font-family="Georgia, serif" fill="#FAF1E0">
+          <text x="80" y="140" font-size="22" letter-spacing="6" fill="#D9A521">SRIBD · EST. 2016</text>
+          <text x="80" y="320" font-size="120" font-weight="700" letter-spacing="-3">深圳数字</text>
+          <text x="80" y="460" font-size="120" font-weight="700" letter-spacing="-3">技术研究院</text>
+          <text x="80" y="540" font-size="34" font-style="italic" fill="#E5D2B0">Shenzhen Research Institute</text>
+          <text x="80" y="585" font-size="34" font-style="italic" fill="#E5D2B0">of Big Data</text>
+        </g>
+        <g transform="translate(80, 700)" font-family="-apple-system, sans-serif" fill="#E5D2B0" font-size="18">
+          <text x="0" y="0" letter-spacing="3">CROSS-DISCIPLINARY RESEARCH · POLICY · INDUSTRY</text>
+        </g>
+        <g transform="translate(1180, 200)">
+          <circle r="180" fill="none" stroke="#D9A521" stroke-width="1.5" opacity="0.6"/>
+          <circle r="140" fill="none" stroke="#D9A521" stroke-width="1" opacity="0.5"/>
+          <circle r="100" fill="none" stroke="#D9A521" stroke-width="1" opacity="0.4"/>
+          <circle cx="0" cy="0" r="6" fill="#D9A521"/>
+          <text x="0" y="220" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#D9A521" text-anchor="middle">a hub where data meets society</text>
+        </g>
+        <g transform="translate(80, 800)" font-family="sans-serif" font-size="14" fill="#FAF1E0" opacity="0.5">
+          <text>Roslyn Lin · Brand & Deck Design · 2024</text>
+        </g>
+      `
+    },
+    'qq-dance': {
+      tag: 'Cross-Industry Marketing · Deck',
+      title: 'QQ 炫舞 × SRIBD 跨界营销',
+      desc: '游戏 IP × 学术机构跨界营销方案与演示设计 — 创意 / 媒介 / 视觉 / 落地',
+      foot: '受众：腾讯互娱 · 学术用户 · 大众传播',
+      svg: `
+        <rect width="1600" height="900" fill="#2B1810"/>
+        <g opacity="0.3">
+          <circle cx="200" cy="200" r="220" fill="#A83246"/>
+          <circle cx="1400" cy="700" r="280" fill="#D9A521"/>
+          <circle cx="800" cy="450" r="180" fill="#1F5D3A"/>
+        </g>
+        <g font-family="Georgia, serif" fill="#FAF1E0">
+          <text x="80" y="120" font-size="20" letter-spacing="5" fill="#D9A521">CROSS-OVER · 2023</text>
+          <text x="80" y="280" font-size="80" font-weight="700" letter-spacing="-2">当音乐节奏</text>
+          <text x="80" y="370" font-size="80" font-weight="700" letter-spacing="-2" fill="#D9A521">遇见数据科学</text>
+          <text x="80" y="500" font-size="32" font-style="italic" fill="#E5D2B0">QQ炫舞 × SRIBD</text>
+          <text x="80" y="540" font-size="22" font-family="sans-serif" fill="#E5D2B0" opacity="0.85">游戏 IP × 科研机构 联名跨界 · 让硬核研究变得可被感知</text>
+        </g>
+        <g transform="translate(960, 180)" font-family="sans-serif" fill="#FAF1E0">
+          <rect x="0" y="0" width="540" height="60" fill="none" stroke="#D9A521" stroke-width="1" opacity="0.5"/>
+          <text x="20" y="38" font-size="20" font-weight="600">① 概念 · 当 AI 进入节奏游戏</text>
+          <rect x="0" y="80" width="540" height="60" fill="none" stroke="#D9A521" stroke-width="1" opacity="0.5"/>
+          <text x="20" y="118" font-size="20" font-weight="600">② 内容 · 游戏内 SRIBD 主题关卡</text>
+          <rect x="0" y="160" width="540" height="60" fill="none" stroke="#D9A521" stroke-width="1" opacity="0.5"/>
+          <text x="20" y="198" font-size="20" font-weight="600">③ 传播 · KOL + 短视频 + 线下快闪</text>
+          <rect x="0" y="240" width="540" height="60" fill="none" stroke="#D9A521" stroke-width="1" opacity="0.5"/>
+          <text x="20" y="278" font-size="20" font-weight="600">④ 转化 · 玩家调研 → 报名科研体验</text>
+        </g>
+        <g transform="translate(80, 820)" font-family="sans-serif" font-size="14" fill="#FAF1E0" opacity="0.5">
+          <text>Roslyn Lin · Proposal & Deck Design · 2023</text>
+        </g>
+      `
+    },
+    'whitepaper': {
+      tag: 'Whitepaper · Layout & Editorial',
+      title: '行业白皮书 · 设计与内容',
+      desc: '行业白皮书设计、内容策划与版面排版 — 从数据图表到长文阅读节奏的统一把控',
+      foot: '成品：65 页 · 320+ 数据图 · A4 / iPad 双版',
+      svg: `
+        <rect width="1600" height="900" fill="#F4E8D6"/>
+        <rect x="60" y="60" width="700" height="780" fill="#FAF1E0" stroke="#C8A878"/>
+        <rect x="60" y="60" width="700" height="120" fill="#1F5D3A"/>
+        <g font-family="Georgia, serif" fill="#FAF1E0">
+          <text x="100" y="115" font-size="14" letter-spacing="4">WHITEPAPER · 2024</text>
+          <text x="100" y="160" font-size="36" font-weight="600">AI 产业落地观察</text>
+        </g>
+        <g font-family="Georgia, serif" fill="#2B1810">
+          <text x="100" y="240" font-size="60" font-weight="700">数据驱动的</text>
+          <text x="100" y="310" font-size="60" font-weight="700" fill="#C24A1E">下一站</text>
+          <line x1="100" y1="350" x2="280" y2="350" stroke="#C24A1E" stroke-width="3"/>
+          <text x="100" y="400" font-size="16" font-style="italic" fill="#5A3D28">Industry × Research × Policy</text>
+          <text x="100" y="440" font-size="14" font-family="sans-serif" fill="#5A3D28">一份关于中国 AI 产业落地的调研报告</text>
+        </g>
+        <!-- mini bar chart -->
+        <g transform="translate(100, 540)">
+          <text x="0" y="-10" font-family="sans-serif" font-size="12" fill="#8A6644">CHAPTERS · 8</text>
+          ${[60, 90, 75, 110, 50, 95, 130, 70].map((h, i) => `
+            <rect x="${i*70}" y="${130-h}" width="40" height="${h}" fill="${['#C24A1E','#D9A521','#1F5D3A','#A83246','#6B3A6B','#C24A1E','#1F5D3A','#D9A521'][i]}" opacity="0.85"/>
+            <text x="${i*70+20}" y="160" font-family="sans-serif" font-size="11" fill="#5A3D28" text-anchor="middle">${i+1}</text>
+          `).join('')}
+        </g>
+        <!-- right page -->
+        <rect x="800" y="60" width="700" height="780" fill="#FAF1E0" stroke="#C8A878"/>
+        <g font-family="Georgia, serif" fill="#2B1810">
+          <text x="840" y="120" font-size="24" font-weight="600">02 · 数据图谱</text>
+          <text x="840" y="148" font-size="13" font-style="italic" fill="#8A6644">A mapping of China's AI industry</text>
+        </g>
+        <!-- network diagram -->
+        <g transform="translate(1150, 400)" opacity="0.85">
+          ${[
+            [0,0,40,'#C24A1E'], [-200,-120,30,'#1F5D3A'], [180,-150,28,'#D9A521'], [-220,80,32,'#A83246'], [210,110,34,'#6B3A6B'], [80,-200,22,'#1F5D3A'], [-100,200,26,'#C24A1E'], [160,180,24,'#D9A521']
+          ].map(([x,y,r,c]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" fill-opacity="0.7"/>`).join('')}
+          ${Array.from({length:8}).map((_,i) => `<line x1="0" y1="0" x2="${[0,-200,180,-220,210,80,-100,160][i]}" y2="${[0,-120,-150,80,110,-200,200,180][i]}" stroke="#8A6644" stroke-width="0.8" opacity="0.5"/>`).join('')}
+        </g>
+        <g transform="translate(840, 720)" font-family="sans-serif" font-size="13" fill="#5A3D28">
+          <text>· 65 页正文</text>
+          <text y="22">· 320+ 数据图</text>
+          <text y="44">· 双版（印刷 + 屏幕）</text>
+        </g>
+        <g transform="translate(60, 870)" font-family="sans-serif" font-size="12" fill="#8A6644">
+          <text>Roslyn Lin · Design · Content · Layout · 2024</text>
+        </g>
+      `
+    },
+    'acegpt': {
+      tag: 'Branding · Short Film',
+      title: '《ACEGPT》品牌视觉与展示',
+      desc: '从 0 到 1 设计品牌标识、制作项目短片 — 用于深圳市领导带队在沙特相关领导前展示',
+      foot: '舞台：深圳 · 利雅得 · 双城同屏',
+      svg: `
+        <defs>
+          <linearGradient id="aceBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0E1B3A"/><stop offset="1" stop-color="#3B0F2D"/>
+          </linearGradient>
+          <linearGradient id="aceStroke" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#5BC0F8"/><stop offset="1" stop-color="#FF8A3C"/>
+          </linearGradient>
+        </defs>
+        <rect width="1600" height="900" fill="url(#aceBg)"/>
+        <g opacity="0.16" stroke="#5BC0F8" stroke-width="0.6">
+          ${Array.from({length:24}, (_, i) => `<line x1="0" y1="${i*40}" x2="1600" y2="${i*40}"/>`).join('')}
+        </g>
+        <!-- big ACE -->
+        <g font-family="Georgia, serif" font-weight="800" letter-spacing="-6" fill="url(#aceStroke)">
+          <text x="800" y="440" font-size="260" text-anchor="middle">ACE</text>
+        </g>
+        <g font-family="Georgia, serif" fill="#FAF1E0">
+          <text x="800" y="540" font-size="72" font-weight="500" text-anchor="middle" letter-spacing="6">GPT</text>
+        </g>
+        <g transform="translate(800, 660)" font-family="Georgia, serif" fill="#FAF1E0" text-anchor="middle">
+          <text font-size="22" font-style="italic" opacity="0.85">沙特 · 深圳 · 双城同屏</text>
+        </g>
+        <g transform="translate(80, 100)" font-family="sans-serif" fill="#5BC0F8" font-size="14" letter-spacing="4">
+          <text>PROJECT · ACEGPT</text>
+        </g>
+        <g transform="translate(80, 800)" font-family="sans-serif" font-size="14" fill="#E5D2B0" opacity="0.5">
+          <text>Branding · Logo · Short Film · On-stage Visual</text>
+        </g>
+        <g transform="translate(1520, 800)" font-family="sans-serif" font-size="14" fill="#E5D2B0" opacity="0.5" text-anchor="end">
+          <text>Roslyn Lin · 2023</text>
+        </g>
+      `
+    },
+    'kernelcat': {
+      tag: 'Video Interview · Tech Founder',
+      title: '人物访谈 · KernelCAT',
+      desc: 'AI 计算加速创业专访 — KernelCAT，10 个月融资近亿元',
+      foot: '视频：12 min · 双机位 · 调色',
+      svg: `
+        <rect width="1600" height="900" fill="#1A1208"/>
+        <!-- stage lights -->
+        <g opacity="0.18">
+          <ellipse cx="800" cy="500" rx="900" ry="220" fill="#D9A521"/>
+        </g>
+        <!-- interviewer/silhouette -->
+        <g transform="translate(800, 380)">
+          <ellipse cx="0" cy="0" rx="90" ry="110" fill="#2B1810"/>
+          <path d="M -180 280 Q 0 180 180 280 Z" fill="#2B1810"/>
+          <!-- rim light -->
+          <path d="M -90 -80 Q -120 0 -80 110" stroke="#D9A521" stroke-width="3" fill="none" opacity="0.85"/>
+          <path d="M 90 -80 Q 120 0 80 110" stroke="#D9A521" stroke-width="3" fill="none" opacity="0.85"/>
+        </g>
+        <!-- microphone -->
+        <g transform="translate(680, 540)">
+          <rect x="0" y="0" width="6" height="100" fill="#8A6644"/>
+          <circle cx="3" cy="-10" r="14" fill="#2B1810" stroke="#D9A521" stroke-width="2"/>
+        </g>
+        <!-- title -->
+        <g font-family="Georgia, serif" fill="#FAF1E0">
+          <text x="80" y="120" font-size="16" letter-spacing="5" fill="#D9A521">Tech Founder · Interview · 2024</text>
+          <text x="80" y="220" font-size="60" font-weight="700" letter-spacing="-2">KernelCAT</text>
+          <text x="80" y="280" font-size="34" font-style="italic" fill="#E5D2B0">AI 计算加速创业专访</text>
+          <text x="80" y="320" font-size="20" font-family="sans-serif" fill="#E5D2B0" opacity="0.7">10 个月融资近亿元</text>
+        </g>
+        <!-- timeline bar -->
+        <g transform="translate(80, 480)">
+          <text font-family="sans-serif" font-size="12" fill="#8A6644">TIMELINE</text>
+          <line x1="0" y1="20" x2="1440" y2="20" stroke="#8A6644" stroke-width="1" opacity="0.5"/>
+          ${[
+            ['idea', 80],
+            ['seed', 320],
+            ['kernel', 560],
+            ['demo', 800],
+            ['series', 1040],
+            ['ship', 1280]
+          ].map(([n, x], i) => `
+            <circle cx="${x}" cy="20" r="6" fill="#D9A521"/>
+            <text x="${x}" y="50" font-family="sans-serif" font-size="12" fill="#FAF1E0" text-anchor="middle" opacity="0.7">${n}</text>
+          `).join('')}
+        </g>
+        <g transform="translate(80, 760)" font-family="sans-serif" font-size="14" fill="#E5D2B0" opacity="0.5">
+          <text>Roslyn Lin · Interview · Edit · Color · 2024</text>
+        </g>
+      `
+    },
+    'brand-film': {
+      tag: 'Brand Film · 致广大而敬精微',
+      title: '品牌宣传片 · SRIBD',
+      desc: 'SRIBD 品牌宣传片全流程主创（策划 · 脚本 · 视觉） — 让"数据改变城市"被看见',
+      foot: '影片：2:30 · 8 段 · 调色 · 配乐',
+      svg: `
+        <defs>
+          <linearGradient id="filmG1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2A1B12"/><stop offset="1" stop-color="#0B0805"/>
+          </linearGradient>
+          <linearGradient id="filmG2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#A83246" stop-opacity="0.95"/>
+            <stop offset="0.5" stop-color="#D9A521" stop-opacity="0.75"/>
+            <stop offset="1" stop-color="#1F5D3A" stop-opacity="0.95"/>
+          </linearGradient>
+        </defs>
+        <rect width="1600" height="900" fill="url(#filmG1)"/>
+        <!-- city silhouette -->
+        <g transform="translate(0, 600)" fill="#0B0805">
+          ${[
+            [0,0,80,80],[80,30,60,50],[140,10,100,70],[240,40,70,40],[310,0,90,80],
+            [400,20,60,60],[460,0,120,80],[580,30,80,50],[660,10,90,70],[750,40,60,40],
+            [810,0,100,80],[910,20,80,60],[990,0,90,80],[1080,30,70,50],[1150,10,80,70],
+            [1230,40,60,40],[1290,0,90,80],[1380,20,70,60],[1450,0,150,80]
+          ].map(([x,y,w,h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`).join('')}
+        </g>
+        <!-- horizon glow -->
+        <ellipse cx="800" cy="620" rx="900" ry="120" fill="url(#filmG2)" opacity="0.35"/>
+        <!-- big chinese title -->
+        <g font-family="'Noto Serif SC', Georgia, serif" fill="#FAF1E0">
+          <text x="800" y="300" font-size="120" font-weight="600" text-anchor="middle" letter-spacing="40">致广大</text>
+          <text x="800" y="430" font-size="120" font-weight="600" text-anchor="middle" letter-spacing="40" fill="#D9A521">而敬精微</text>
+        </g>
+        <!-- subtitle -->
+        <g transform="translate(800, 510)" font-family="Georgia, serif" fill="#E5D2B0" text-anchor="middle">
+          <text font-size="22" font-style="italic">Branding Film · SRIBD</text>
+        </g>
+        <!-- film leader frames -->
+        <g opacity="0.5">
+          <line x1="0" y1="80" x2="1600" y2="80" stroke="#FAF1E0" stroke-width="1"/>
+          <line x1="0" y1="820" x2="1600" y2="820" stroke="#FAF1E0" stroke-width="1"/>
+        </g>
+        <g transform="translate(80, 100)" font-family="sans-serif" font-size="12" fill="#D9A521" letter-spacing="4">
+          <text>REEL · 01 · 30</text>
+        </g>
+        <g transform="translate(80, 860)" font-family="sans-serif" font-size="14" fill="#E5D2B0" opacity="0.5">
+          <text>Roslyn Lin · Producer · Scriptwriter · Visual Director · 2024</text>
+        </g>
+        <g transform="translate(1520, 100)" font-family="sans-serif" font-size="12" fill="#D9A521" letter-spacing="3" text-anchor="end">
+          <text>TIME · 2:30 · COLOR · MUSIC</text>
+        </g>
+      `
+    }
+  };
+
+  // Build the lightbox DOM once
+  const lb = document.createElement('div');
+  lb.className = 'ex-lightbox';
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.innerHTML = `
+    <div class="ex-lightbox-inner" role="document">
+      <button class="ex-lb-close" aria-label="关闭预览">×</button>
+      <div class="ex-lb-canvas"></div>
+      <div class="ex-lb-meta">
+        <span class="ex-lb-tag"></span>
+        <h3 class="ex-lb-title"></h3>
+        <p class="ex-lb-desc"></p>
+        <div class="ex-lb-foot"></div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(lb);
+
+  const lbCanvas = lb.querySelector('.ex-lb-canvas');
+  const lbTitle = lb.querySelector('.ex-lb-title');
+  const lbDesc = lb.querySelector('.ex-lb-desc');
+  const lbTag = lb.querySelector('.ex-lb-tag');
+  const lbFoot = lb.querySelector('.ex-lb-foot');
+
+  function openLightbox(key, sourceEl) {
+    const data = EX_PREVIEWS[key];
+    if (!data) return;
+    // Build named SVG with consistent viewBox
+    const NS = 'http://www.w3.org/2000/svg';
+    const svgEl = document.createElementNS(NS, 'svg');
+    svgEl.setAttribute('viewBox', '0 0 1600 900');
+    svgEl.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    svgEl.innerHTML = data.svg;
+    lbCanvas.innerHTML = '';
+    lbCanvas.appendChild(svgEl);
+    lbTag.textContent = data.tag;
+    lbTitle.textContent = data.title;
+    lbDesc.textContent = data.desc;
+    lbFoot.textContent = data.foot;
+    lb.classList.add('is-open');
+    document.body.classList.add('lb-open');
+  }
+  function closeLightbox() {
+    lb.classList.remove('is-open');
+    document.body.classList.remove('lb-open');
+  }
+
+  // Click on each extra-list item → open preview
+  document.querySelectorAll('.extra-list li[data-preview]').forEach((li) => {
+    li.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(li.dataset.preview, li);
+    });
+  });
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) closeLightbox();
+  });
+  lb.querySelector('.ex-lb-close').addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLightbox();
+  });
+
+  /* ---------- 15. Console signature ---------- */
   console.log(
     '%c Roslyn Lin · Portfolio %c v3 · active editorial ',
     'background:#C24A1E;color:#FAF1E0;padding:6px 10px;font-family:Georgia,serif;',
