@@ -2669,3 +2669,31 @@ section { padding: clamp(80px, 12vh, 140px) var(--pad-x); position: relative; }
     margin-left: 0;
   }
 }
+
+/* ============================================================
+   TRAJECTORY — v3.9.2 long-form entries
+   Each t-item now has: t-year + h4 (with t-sub) + long p
+   ============================================================ */
+
+.t-item .t-sub {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.78em;
+  color: rgba(250, 241, 224, 0.6);
+  margin-top: 4px;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+.t-item p {
+  font-size: clamp(12px, 1vw, 14px);
+  line-height: 1.65;
+  color: rgba(250, 241, 224, 0.7);
+  margin: 10px 0 0;
+  max-width: 52ch;
+}
+.t-item h4 {
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
