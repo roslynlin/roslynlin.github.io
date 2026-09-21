@@ -2581,3 +2581,91 @@ section { padding: clamp(80px, 12vh, 140px) var(--pad-x); position: relative; }
   .proj-stats { flex-direction: column; align-items: flex-start; }
   .end-inner { flex-direction: column; align-items: flex-start; }
 }
+
+/* ============================================================
+   SELECTED IN DETAIL — categorized (v3.9)
+   5 categories × different color accents
+   ============================================================ */
+
+.works-sub-intro {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: -16px 0 32px;
+  max-width: 640px;
+}
+
+.works-cat {
+  margin-bottom: 48px;
+}
+.works-cat:last-child { margin-bottom: 0; }
+
+.works-cat-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1.5px solid currentColor;
+}
+.works-cat-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(28px, 3.5vw, 40px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.works-cat-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0;
+}
+.works-cat-count {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-left: auto;
+  padding: 3px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 100px;
+  color: currentColor;
+  opacity: 0.85;
+}
+
+/* per-category colors */
+.works-cat-strategy { color: var(--c-orange); }
+.works-cat-academic { color: var(--c-green); }
+.works-cat-media    { color: var(--c-yellow); }
+.works-cat-content  { color: var(--c-red); }
+.works-cat-writing  { color: var(--c-plum); }
+
+/* tighten the inner grid for the categorized layout */
+.works-cat .works-grid {
+  border-top: 1px solid rgba(27, 25, 22, 0.12);
+}
+.works-cat .work-row:first-child { border-top: none; }
+
+/* make work-num slightly larger to balance with the new 01-16 numbering */
+.works-cat .work-num {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+/* responsive */
+@media (max-width: 860px) {
+  .works-cat-head {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .works-cat-count {
+    margin-left: 0;
+  }
+}
