@@ -583,7 +583,29 @@
     if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLightbox();
   });
 
-  /* ---------- 15. Console signature ---------- */
+  /* ---------- 15. WeChat QR lightbox ---------- */
+  const qrLb = document.createElement('div');
+  qrLb.className = 'qr-lightbox';
+  qrLb.setAttribute('role', 'dialog');
+  qrLb.setAttribute('aria-modal', 'true');
+  qrLb.innerHTML = `
+    <div class="qr-lightbox-inner" role="document">
+      <button class="qr-lightbox-close" aria-label="关闭">×</button>
+      <img class="qr-lightbox-img" src="assets/wechat-qr.png" alt="Roslyn Lin 微信二维码">
+      <p class="qr-lightbox-cap"><strong>WeChat</strong>镕姑凉 · 广东汕头 · 扫一扫加我</p>
+    </div>
+  `;
+  document.body.appendChild(qrLb);
+  function openQr() { qrLb.classList.add('is-open'); document.body.classList.add('lb-open'); }
+  function closeQr() { qrLb.classList.remove('is-open'); document.body.classList.remove('lb-open'); }
+  document.querySelectorAll('.qr-trigger').forEach((b) => b.addEventListener('click', openQr));
+  qrLb.addEventListener('click', (e) => { if (e.target === qrLb) closeQr(); });
+  qrLb.querySelector('.qr-lightbox-close').addEventListener('click', closeQr);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && qrLb.classList.contains('is-open')) closeQr();
+  });
+
+  /* ---------- 16. Console signature ---------- */
   console.log(
     '%c Roslyn Lin · Portfolio %c v3 · active editorial ',
     'background:#C24A1E;color:#FAF1E0;padding:6px 10px;font-family:Georgia,serif;',
