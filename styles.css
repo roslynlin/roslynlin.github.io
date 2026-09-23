@@ -3969,3 +3969,562 @@ section.page-project-major { --theme: var(--c-red); --theme-2: var(--c-orange); 
   margin: 0 0 4px;
   line-height: 1.3;
 }
+
+/* =====================================================
+   Page: project-huatuo-gpt.html
+   主题：医疗 / 健康 → 翠绿 #1F5D3A
+===================================================== */
+section.page-project-huatuo { background: var(--bg); }
+section.page-project-huatuo { --theme: var(--c-green); --theme-2: var(--c-yellow); }
+
+.proj-hero-huatuo .proj-title-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--c-green);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  transform: rotate(-1deg);
+}
+
+.proj-hero-huatuo .proj-title-big {
+  display: block;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(64px, 11vw, 152px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+}
+.proj-hero-huatuo .proj-title-big em {
+  font-style: italic;
+  color: var(--c-green);
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+.proj-hero-huatuo .proj-title-big em::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  bottom: -8px;
+  height: 8px;
+  background: rgba(31, 93, 58, 0.12);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.proj-hero-huatuo .proj-title-sub-en {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(11px, 1.2vw, 14px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 14px 0 8px;
+  line-height: 1.6;
+  max-width: 680px;
+}
+
+/* ====== Sections ====== */
+.huatuo-section {
+  padding: clamp(60px, 8vw, 100px) clamp(24px, 6vw, 80px);
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+.huatuo-section-alt {
+  background: var(--paper);
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.huatuo-section-alt > * {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(24px, 6vw, 80px);
+  padding-right: clamp(24px, 6vw, 80px);
+}
+.huatuo-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 40px;
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 18px;
+}
+.huatuo-section-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--c-green);
+}
+.huatuo-section-head .subhead {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 44px);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+.huatuo-section-en {
+  margin-left: auto;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+/* ====== Lead paragraph ====== */
+.huatuo-lead {
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.7vw, 22px);
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 720px;
+  margin: 0 0 56px;
+}
+.huatuo-lead em {
+  font-style: italic;
+  color: var(--c-green);
+  font-weight: 500;
+}
+
+/* ====== Background ====== */
+.huatuo-bg {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 880px;
+}
+.huatuo-bg-text {
+  font-family: var(--sans);
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0;
+}
+.huatuo-bg-text em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ink);
+}
+.huatuo-bg-mark {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--c-green);
+  position: relative;
+  padding: 0 2px;
+}
+.huatuo-bg-mark::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 0;
+  height: 6px;
+  background: rgba(31, 93, 58, 0.1);
+  z-index: -1;
+  border-radius: 3px;
+}
+.huatuo-bg-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 12px 24px;
+  background: var(--bg-2);
+  border: 1.5px solid var(--c-green);
+  border-radius: 100px;
+  align-self: flex-start;
+  position: relative;
+}
+.huatuo-bg-pill::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--c-green);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.huatuo-bg-pill-tag {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-green);
+  font-weight: 600;
+}
+.huatuo-bg-pill-text {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* ====== 3-layer cards ====== */
+.huatuo-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+.huatuo-layer {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 32px 36px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  position: relative;
+  transition: transform 0.4s var(--ease);
+}
+.huatuo-layer-official { transform: rotate(-0.5deg); }
+.huatuo-layer-authority { transform: rotate(0.4deg); }
+.huatuo-layer-people { transform: rotate(-0.3deg); }
+.huatuo-layer:hover {
+  transform: rotate(0) translateY(-4px);
+}
+
+.huatuo-layer-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1.5px dashed rgba(31, 93, 58, 0.2);
+  padding-right: 24px;
+}
+.huatuo-layer-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--c-green);
+  letter-spacing: -0.04em;
+}
+.huatuo-layer-tag {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.huatuo-layer-tag-en {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.huatuo-layer-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.huatuo-layer-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(20px, 2vw, 26px);
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.huatuo-layer-desc {
+  font-family: var(--sans);
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 640px;
+}
+.huatuo-layer-desc em {
+  font-style: italic;
+  color: var(--c-green);
+  font-weight: 500;
+}
+
+.huatuo-layer-channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.huatuo-channel {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--paper);
+  transition: all 0.3s var(--ease);
+}
+.huatuo-channel:hover {
+  transform: translateY(-2px);
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.huatuo-channel-official:hover { background: var(--c-red); border-color: var(--c-red); }
+.huatuo-channel-authority:hover { background: var(--c-orange); border-color: var(--c-orange); }
+.huatuo-channel-people:hover { background: var(--c-green); border-color: var(--c-green); }
+
+.huatuo-layer-note {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(31, 93, 58, 0.2);
+}
+.huatuo-layer-note::before {
+  content: "关键词 · ";
+  color: var(--c-green);
+  font-weight: 500;
+}
+
+/* ====== Flow connector ====== */
+.huatuo-flow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 0 0;
+  flex-wrap: wrap;
+}
+.huatuo-flow-step {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--bg-2);
+  border: 1.5px solid var(--c-green);
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--c-green);
+  letter-spacing: 0.04em;
+}
+.huatuo-flow-end {
+  background: var(--c-green);
+  color: var(--paper);
+  font-weight: 600;
+}
+.huatuo-flow-line {
+  flex: 1;
+  min-width: 24px;
+  height: 1.5px;
+  background: linear-gradient(to right, var(--c-green), rgba(31, 93, 58, 0.15));
+  position: relative;
+}
+.huatuo-flow-line::after {
+  content: "→";
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-green);
+  font-size: 14px;
+}
+
+/* ====== Results ====== */
+.huatuo-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+.huatuo-result {
+  padding: 28px;
+  background: var(--bg-2);
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.4s var(--ease);
+}
+.huatuo-result:nth-child(1) { transform: rotate(-0.4deg); }
+.huatuo-result:nth-child(2) { transform: rotate(0.3deg); }
+.huatuo-result:nth-child(3) { transform: rotate(-0.5deg); }
+.huatuo-result:hover { transform: rotate(0) translateY(-4px); }
+
+.huatuo-result-tag {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-green);
+  font-weight: 600;
+}
+.huatuo-result-text {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0;
+}
+.huatuo-result-count {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink);
+  margin-top: auto;
+}
+
+.huatuo-wave-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.huatuo-wave-list li {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  padding-left: 20px;
+  position: relative;
+}
+.huatuo-wave-list li::before {
+  content: "·";
+  position: absolute;
+  left: 6px;
+  color: var(--c-green);
+  font-weight: 700;
+  font-size: 18px;
+  top: -2px;
+}
+.huatuo-wave-list strong {
+  color: var(--ink);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.huatuo-result-tail-text {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin: 0;
+}
+.huatuo-result-tail-text em {
+  font-style: italic;
+  color: var(--c-green);
+  font-weight: 500;
+}
+
+/* ====== Quote ====== */
+.huatuo-quote {
+  position: relative;
+  padding: 48px 48px 40px;
+  background: linear-gradient(135deg, rgba(31, 93, 58, 0.04), rgba(217, 165, 33, 0.04));
+  border-radius: 16px;
+  border-left: 4px solid var(--c-green);
+}
+.huatuo-quote-mark {
+  position: absolute;
+  top: -10px;
+  left: 32px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 96px;
+  line-height: 1;
+  color: var(--c-green);
+  opacity: 0.4;
+}
+.huatuo-quote-body {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 16px 0 20px;
+  letter-spacing: -0.01em;
+}
+.huatuo-quote-body em {
+  font-style: italic;
+  color: var(--c-green);
+  font-weight: 500;
+  position: relative;
+}
+.huatuo-quote-body em::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 0;
+  height: 6px;
+  background: rgba(31, 93, 58, 0.15);
+  z-index: -1;
+  border-radius: 3px;
+}
+.huatuo-quote-cap {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  margin-top: 12px;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 1100px) {
+  .huatuo-results { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .huatuo-layer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 24px;
+  }
+  .huatuo-layer-rail {
+    border-right: none;
+    border-bottom: 1.5px dashed rgba(31, 93, 58, 0.2);
+    padding-right: 0;
+    padding-bottom: 12px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .huatuo-layer-num {
+    font-size: 32px;
+  }
+  .huatuo-layer-official,
+  .huatuo-layer-authority,
+  .huatuo-layer-people,
+  .huatuo-result:nth-child(1),
+  .huatuo-result:nth-child(2),
+  .huatuo-result:nth-child(3) { transform: rotate(0); }
+  .huatuo-flow { gap: 8px; }
+  .huatuo-flow-line { min-width: 16px; }
+  .huatuo-quote { padding: 36px 28px 28px; }
+  .huatuo-quote-mark { font-size: 72px; left: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .huatuo-layer,
+  .huatuo-result,
+  .huatuo-channel { transition: none; transform: none; }
+  .huatuo-layer:hover,
+  .huatuo-result:hover,
+  .huatuo-channel:hover { transform: none; }
+}
